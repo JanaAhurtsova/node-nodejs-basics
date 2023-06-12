@@ -11,3 +11,6 @@ export const FOLDER_COPY_PATH = 'src/fs/files_copy';
 //rename.js
 export const RENAME_FROM = 'wrongFilename.txt';
 export const RENAME_TO = 'properFilename.md';
+
+//delete.js
+export const DELETE_FILE = 'fileToRemove.txt';
