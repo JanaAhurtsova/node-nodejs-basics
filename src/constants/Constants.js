@@ -17,3 +17,7 @@ export const DELETE_FILE = 'fileToRemove.txt';
 
 //read.js
 export const READ_FILE = 'fileToRead.txt';
+
+//cli
+export const PREFIX_ENV = 'RSS_';
+export const PREFIX_ARGS = '--';
