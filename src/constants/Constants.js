@@ -14,3 +14,6 @@ export const RENAME_TO = 'properFilename.md';
 
 //delete.js
 export const DELETE_FILE = 'fileToRemove.txt';
+
+//read.js
+export const READ_FILE = 'fileToRead.txt';
