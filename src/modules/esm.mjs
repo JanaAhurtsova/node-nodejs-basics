@@ -2,8 +2,10 @@ import path from 'path';
 import { release, version } from 'os';
 import { createServer as createServerHttp } from 'http';
 import { fileURLToPath } from 'url';
+import { createRequire } from "module";
 import './files/c.js';
 
+const require = createRequire(import.meta.url);
 const random = Math.random();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,9 +13,9 @@ const __dirname = path.dirname(__filename);
 let unknownObject;
 
 if (random > 0.5) {
-  unknownObject = await import('./files/a.json', { assert: { type: "json" } });
+  unknownObject = require('./files/a.json', import.meta.url);
 } else {
-  unknownObject = await import('./files/b.json', { assert: { type: "json" } });
+  unknownObject = require('./files/b.json', import.meta.url);
 }
 
 console.log(`Release ${release()}`);
