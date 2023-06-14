@@ -1,11 +1,16 @@
 import { writeFile } from 'fs/promises';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-import { FILES_FOLDER_PATH, FILE_CREATE, CONTENT, ERROR } from '../constants/Constants.js';
+import { FILE_CREATE, CONTENT, ERROR } from '../constants/Constants.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const fileToCreate = path.resolve(__dirname, FILE_CREATE);
 
 const create = async () => {
   try {
-    await writeFile(path.resolve(FILES_FOLDER_PATH, FILE_CREATE), CONTENT, { flag: 'wx' });
+    await writeFile(fileToCreate, CONTENT, { flag: 'wx' });
   } catch(err) {
     console.log(err);
     throw new Error(ERROR);

@@ -1,13 +1,20 @@
 import { copyFile, mkdir, readdir } from 'fs/promises';
 import path from 'path';
-import { FILES_FOLDER_PATH, FOLDER_COPY_PATH, ERROR } from '../constants/Constants.js';
+import { fileURLToPath } from 'url';
+
+import { ERROR, FILES, FILES_COPY } from '../constants/Constants.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const filesFolder = path.resolve(__dirname, FILES);
+const filesCopyFolder = path.resolve(__dirname, FILES_COPY);
 
 const copy = async () => {
   try {
-    const files = await readdir(FILES_FOLDER_PATH);
-    await mkdir(FOLDER_COPY_PATH);
+    const files = await readdir(filesFolder);
+    await mkdir(filesCopyFolder);
     const copied = files.map((file) => {
-      copyFile(path.resolve(FILES_FOLDER_PATH, file), path.resolve(FOLDER_COPY_PATH, file));
+      copyFile(path.resolve(filesFolder, file), path.resolve(filesCopyFolder, file));
     })
 
     await Promise.all(copied);

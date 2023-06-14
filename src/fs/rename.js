@@ -1,6 +1,13 @@
 import { stat, rename as renameFile } from 'fs/promises';
 import path from 'path';
-import { ERROR, FILES_FOLDER_PATH, RENAME_FROM, RENAME_TO } from '../constants/Constants.js';
+import { fileURLToPath } from 'url';
+
+import { ERROR, RENAME_FROM, RENAME_TO } from '../constants/Constants.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const fileToRename = path.resolve(__dirname, RENAME_FROM);
+const renamedFile = path.resolve(__dirname, RENAME_TO);
 
 const isExist = async (path) => {
   try {
@@ -12,14 +19,10 @@ const isExist = async (path) => {
 }
 
 const rename = async () => {
-  if (
-    await isExist(path.resolve(FILES_FOLDER_PATH, RENAME_TO)) 
-    ||
-    !await isExist(path.resolve(FILES_FOLDER_PATH, RENAME_FROM))
-  ) {
+  if (await isExist(fileToRename) || !await isExist(renamedFile)) {
     throw new Error(ERROR);
   } else {
-    await renameFile(path.resolve(FILES_FOLDER_PATH, RENAME_FROM), path.resolve(FILES_FOLDER_PATH, RENAME_TO));
+    await renameFile(fileToRename, renamedFile);
   }
 };
 

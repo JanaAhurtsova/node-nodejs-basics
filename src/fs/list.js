@@ -1,9 +1,16 @@
 import { readdir } from 'fs/promises';
-import { ERROR, FILES_FOLDER_PATH } from "../constants/Constants.js";
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+import { ERROR, FILES } from "../constants/Constants.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const filesList = path.resolve(__dirname, FILES);
 
 const list = async () => {
   try {
-    const files = await readdir(FILES_FOLDER_PATH);
+    const files = await readdir(filesList);
     console.log(files);
   } catch(err) {
     console.log(err);

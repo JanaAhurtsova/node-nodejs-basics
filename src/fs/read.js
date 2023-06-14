@@ -1,10 +1,16 @@
 import { readFile } from 'fs/promises';
 import path from 'path';
-import { ERROR, FILES_FOLDER_PATH, READ_FILE } from "../constants/Constants.js";
+import { fileURLToPath } from 'url';
+
+import { ERROR, READ_FILE } from "../constants/Constants.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const fileToRead = path.resolve(__dirname, READ_FILE)
 
 const read = async () => {
   try {
-    const content = await readFile(path.resolve(FILES_FOLDER_PATH, READ_FILE), { encoding: 'utf8' });
+    const content = await readFile(fileToRead, { encoding: 'utf8' });
     console.log(content);
   } catch(err) {
     console.log(err);
