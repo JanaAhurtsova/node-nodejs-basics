@@ -3,11 +3,9 @@ import { createHash } from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { FILE_TO_HASH } from '../constants/Constants.js';
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const fileToCalculateHashFor = path.resolve(__dirname, FILE_TO_HASH);
+const fileToCalculateHashFor = path.resolve(__dirname, 'files/fileToCalculateHashFor.txt');
 
 const calculateHash = async () => {
   try {

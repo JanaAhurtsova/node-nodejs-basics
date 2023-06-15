@@ -2,12 +2,12 @@ import { stat, rename as renameFile } from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { ERROR, RENAME_FROM, RENAME_TO } from '../constants/Constants.js';
+import { ERROR } from '../constants/Constants.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const fileToRename = path.resolve(__dirname, RENAME_FROM);
-const renamedFile = path.resolve(__dirname, RENAME_TO);
+const fileToRename = path.resolve(__dirname, 'files/wrongFilename.txt');
+const renamedFile = path.resolve(__dirname, 'files/properFilename.md');
 
 const isExist = async (path) => {
   try {
