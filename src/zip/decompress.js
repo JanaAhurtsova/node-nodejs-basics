@@ -1,13 +1,10 @@
 import { createUnzip } from 'zlib';
 import { createReadStream, createWriteStream } from 'fs';
-import { fileURLToPath } from 'url';
-import path from 'path';
+import { getPath } from '../libs/paths.js';
 import { pipeline } from 'stream/promises';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const fileDecompress = path.resolve(__dirname, './files/archive.gz');
-const decompressedFile = path.resolve(__dirname, './files/fileToCompress.txt');
+const fileDecompress = getPath(import.meta.url, './files/archive.gz');
+const decompressedFile = getPath(import.meta.url, './files/fileToCompress.txt');
 
 const decompress = async () => {
   const inp = createReadStream(fileDecompress);

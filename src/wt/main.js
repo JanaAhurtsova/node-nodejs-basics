@@ -1,11 +1,8 @@
 import { Worker } from 'worker_threads';
-import { fileURLToPath } from 'url';
-import path from 'path';
+import { getPath } from '../libs/paths.js';
 import { cpus } from 'os';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const fileWorker = path.resolve(__dirname, './worker.js');
+const fileWorker = getPath(import.meta.url, './worker.js');
 
 const performCalculations = async () => {
   let startNumber = 10;
