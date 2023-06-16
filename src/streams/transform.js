@@ -6,7 +6,7 @@ const transform = async () => {
     const transformStream = new Transform({
       transform(data, _, callback) {
         const reverseData = data.toString().split('').reverse().join('');
-        callback(null, reverseData);
+        callback(null, reverseData+'\n');
       },
     });
   
