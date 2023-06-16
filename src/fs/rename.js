@@ -19,7 +19,7 @@ const isExist = async (path) => {
 }
 
 const rename = async () => {
-  if (await isExist(fileToRename) || !await isExist(renamedFile)) {
+  if (!await isExist(fileToRename) || await isExist(renamedFile)) {
     throw new Error(ERROR);
   } else {
     await renameFile(fileToRename, renamedFile);
