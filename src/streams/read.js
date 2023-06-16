@@ -1,10 +1,7 @@
 import { createReadStream } from 'fs';
-import { fileURLToPath } from 'url';
-import path from 'path';
+import { getPath } from '../libs/paths.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const fileStream = path.resolve(__dirname, './files/fileToRead.txt');
+const fileStream = getPath(import.meta.url, './files/fileToRead.txt');
 
 const read = async () => {
   const readStream = createReadStream(fileStream, 'utf-8');
