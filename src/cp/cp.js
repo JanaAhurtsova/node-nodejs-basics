@@ -12,4 +12,4 @@ const spawnChildProcess = async (args) => {
 };
 
 // Put your arguments in function call to test this functionality
-spawnChildProcess([1, '', 'test', true]);
+spawnChildProcess([1, '', 'test', true, null]);
