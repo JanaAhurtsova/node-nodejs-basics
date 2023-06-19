@@ -1,5 +1,11 @@
 # Node.js basics
 
+## :rocket: Running and start
+1. Clone this repo: ```$ git clone https://github.com/JanaAhurtsova/node-nodejs-basics.git```
+2. Go to downloaded folder: ```$ cd node-nodejs-basics```
+3. Checkout to develop branch: ```$ git checkout feature/basics```
+4. Run any script from package.json
+
 ## Subtasks
 ### File system (src/fs)
 It was implemented several functions in dedicated files
