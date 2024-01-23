@@ -16,8 +16,7 @@ const copy = async () => {
     })
 
     await Promise.all(copied);
-  } catch(err) {
-    console.log(err);
+  } catch {
     throw new Error(ERROR);
   }
 };

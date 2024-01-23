@@ -8,8 +8,7 @@ const fileToCreate = getPath(import.meta.url, 'files/fresh.txt');
 const create = async () => {
   try {
     await writeFile(fileToCreate, CONTENT, { flag: 'wx' });
-  } catch(err) {
-    console.log(err);
+  } catch {
     throw new Error(ERROR);
   }
 };

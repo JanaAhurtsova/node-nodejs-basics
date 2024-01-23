@@ -9,8 +9,7 @@ const list = async () => {
   try {
     const files = await readdir(filesList);
     console.log(files);
-  } catch(err) {
-    console.log(err);
+  } catch {
     throw new Error(ERROR);
   }
 };
