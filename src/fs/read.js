@@ -9,8 +9,7 @@ const read = async () => {
   try {
     const content = await readFile(fileToRead, { encoding: 'utf8' });
     console.log(content);
-  } catch(err) {
-    console.log(err);
+  } catch {
     throw new Error(ERROR);
   }
 };

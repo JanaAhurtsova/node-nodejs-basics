@@ -8,8 +8,7 @@ const fileToRemove = getPath(import.meta.url, 'files/fileToRemove.txt');
 const remove = async () => {
   try {
     await unlink(fileToRemove);
-  } catch(err) {
-    console.log(err);
+  } catch {
     throw new Error(ERROR);
   }
 };
